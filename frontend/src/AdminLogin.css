@@ -1,0 +1,19 @@
+.mtLogo {
+  width: 223px;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  padding: 18px 0 18px 48px;
+  width: 100%;
+  max-width: 432px;
+  margin-top: 32px;
+}
+
+.submit-group {
+  margin-top: 201px;
+}
