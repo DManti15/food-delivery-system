@@ -3,6 +3,7 @@ import './App.css'
 import Home from './Home'
 import Guest from './Guest'
 import AdminLogin from './AdminLogin'
+import AdminHome from './AdminHome'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={ <Home/> }></Route>
         <Route path="guest" element={ <Guest/> }></Route>
         <Route path="admin" element={ <AdminLogin/> }></Route>
+        <Route path="adminHome" element={ <AdminHome/> }></Route>
       </Routes>
     </div>
   )

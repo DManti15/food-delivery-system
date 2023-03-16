@@ -10,6 +10,33 @@
   width: 1px; 
 } 
 
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-icon-container {
+  background: #fdfdfd;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  border: none;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  width: 100%;
+  max-width: 432px;
+  margin-top: 32px;
+  overflow: hidden;
+}
+
+.input-icon-container .input-icon {
+  color:rgba(0, 7, 26, 0.5);
+}
+
 .submit-group {
   display: flex;
   justify-content: center;
@@ -19,3 +46,10 @@
   margin: auto 3px;
 }
 
+.submit-group button {
+  padding: 4px 12px;
+}
+
+.arrow-icon {
+  vertical-align: middle;
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AdminLogin.css'
 import LoginForm from './LoginForm';
-import mtLogo from './assets/images/mtLogo.svg'
+import mtLogo from './assets/images/logos/mtLogo.svg'
 
 function AdminLogin() {
   return ( 

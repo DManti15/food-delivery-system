@@ -1,19 +1,27 @@
+.admin-container {
+  margin: 2vh 0;
+}
+
 .mtLogo {
-  width: 223px;
+  width: 62.5%;
+  max-width: 223px;
 }
 
 h1 {
-  margin-top: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: -16px;
   margin-bottom: 8px;
 }
 
 .form-input {
-  padding: 18px 0 18px 48px;
+  background: none;
+  box-shadow: none;
+  padding: 16px 0 16px 8px;
   width: 100%;
   max-width: 432px;
-  margin-top: 32px;
 }
 
 .submit-group {
-  margin-top: 201px;
+  margin-top: 15vh;
 }

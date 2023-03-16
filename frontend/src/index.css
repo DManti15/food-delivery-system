@@ -31,7 +31,7 @@ h1 {
 button {
   border-radius: 50px;
   border: none;
-  padding: 0.6em 1.2em;
+  padding: 0.6em 0.9em;
   margin: 1em;
   font-size: 1em;
   font-weight: 500;
@@ -61,4 +61,28 @@ input {
   letter-spacing: .05em;
   line-height: 20px;
   outline: none;
+}
+
+/* Mobile Background Media Query */
+@media (max-width: 480px) {
+  body {
+    background: url("./assets/images/backgrounds/bkgImage_logInAdminView.png") no-repeat center center fixed;
+    background-size: 100% 100%;
+  }
+}
+
+/* Tablet Background Media Query */
+@media (min-width: 481px) and (max-width: 1024px) {
+  body {
+    background: url("./assets/images/backgrounds/bkgImage_iPadTablet_signUpViewP.png") no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+/* Desktop Background Media Query */
+@media (min-width: 1025px) {
+  body {
+    background: url("./assets/images/backgrounds/bkgImage_webSignUpView.png") no-repeat center center fixed;
+    background-size: cover;
+  }
 }
