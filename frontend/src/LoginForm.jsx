@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "./api/axios";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Lock, User } from "phosphor-react";
@@ -15,7 +15,7 @@ function LoginForm() {
       await axios.post('/login', {username, password});
       setUsername("");
       setPassword("");
-      navigate("adminHome");
+      navigate("/admin-home");
     } catch (e) {
       console.log(e);
     }
