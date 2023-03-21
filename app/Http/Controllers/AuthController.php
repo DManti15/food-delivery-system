@@ -44,37 +44,43 @@ class AuthController extends Controller
     public function login(Request $request) 
     {
         $validator = Validator::make($request->all(),[
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string']
+            'email' => ['required', 'email'],
+            'password' => ['required']
         ]);
 
-        if($validator->fails()) return response(['errors' => $validator->errors()], 401);
+        if($validator->fails()){ 
+            return response()->json([
+                'errors' => $validator->errors(),
+            ], 401);
+        }
+        
+        $user = User::where('email', $request->email)->first();
 
-        $user = User::where('email', $request['Email'])->first();
-        if(!$user || !Hash::check($request['password'], $user->password)){
-            return response([
-                'message' => 'Mistaken Credentials'
+        if(!$user || !Hash::check($request->password, $user->password)){
+            return response()->json([
+                'errors' => [
+                    'login' => ['Invalid credentials'],
+                ],
             ], 401);
         }
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
-
-        $response = [
-            'name' => $user,
-            'token' => $token
-        ];
-
-        return response($response, 201);
+        $token = $user->createToken('auth_token')->plainTextToken;
+          
+        return response()->json([
+          'user' => $user,
+          'token' => $token
+        ], 201);
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         /** @var \App\Models\User $user **/
         auth()->user()->tokens()->delete();
 
-        return [
+        return response()->json([
+            'status'=>201,
             'message' => 'Logged out'
-        ];
+        ]);
 
     }
 }

@@ -3,7 +3,7 @@ import React from "react";
 
 function AdminHome() {
   return ( 
-    <div>this is the admin dashboard</div>
+    <div style={{fontSize: '3em'}}>This is the admin dashboard</div>
    );
 }
 

@@ -25,7 +25,8 @@ Public Routes:
 |--------------------------------------------------------------------------
 */
 //Routes for products table
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', function() { return view('login');});
+Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
