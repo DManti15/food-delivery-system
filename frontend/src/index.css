@@ -66,6 +66,7 @@ input {
 input:-webkit-autofill {
   -webkit-text-fill-color: rgb(0, 7, 26);
   -webkit-box-shadow: 0 0 0px 1000px #fdfdfd inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 /* Mobile Background Media Query */
