@@ -29,7 +29,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::get('/products/search/{productdescription}', [ProductController::class, 'search']);
-Route::get('/login', function() { return view('login');});
+//Route::get('/login', function() { return view('login');});
 Route::post('/login', [AuthController::class, 'login']);
 
 /*
@@ -44,14 +44,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/users', [UserController::class, 'store']);
     Route::patch('/users/{id}', [UserController::class, 'update']);
     Route::delete('/users/{id}', [UserController::class, 'destroy']);
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
 
 //Routes for products table
     Route::post('/products', [ProductController::class, 'store']);
     Route::patch('/products/{id}', [ProductController::class, 'update']);
     Route::delete('/products/{id}', [ProductController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
-
-    Route::get('/admin-home', function () {
-        return response()->json(['message' => 'You are authorized.']);
-    });
 });
