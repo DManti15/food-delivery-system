@@ -69,6 +69,19 @@ input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.blue-text {
+  background: linear-gradient(331.35deg, #002A99 13.53%, #009ACC 87.41%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.red-text {
+  background: linear-gradient(331.35deg, #FD1F17 44.69%, #FD5F5B 66.63%, #FD9A9A 87.41%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.375em;
+}
+
 /* Mobile Background Media Query */
 @media (max-width: 480px) {
   body {

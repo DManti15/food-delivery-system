@@ -1,15 +1,21 @@
-import React from 'react'
+import React from "react";
+import "./ProductCard.css";
 
-function ProductCard({ imagePath, setAlt, setPrice, setDescription }) {
+function ProductCard({ className, imagePath, setAlt, setPrice, setName, setDescription }) {
   return (
-    <div>
+    <div className={ className }>
       <div className="product-card">
-        <img src={ imagePath } alt={ setAlt } />
-        <div className="product-price">{ setPrice }</div>
-        <div className="product-description">{ setDescription }</div>
+        <div className="image-wrapper">
+          <img src={imagePath} alt={setAlt} className="product-image" />
+        </div>
+        <div className="product-price">{setPrice}</div>
+        <div className="product-details">
+          <h3 className="product-name">{setName}</h3>
+          <p className="product-description">{setDescription}</p>
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default ProductCard;

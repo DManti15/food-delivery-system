@@ -1,18 +1,30 @@
+import mtLogo from './logos/mtLogo.svg';
+import cannedSoda from './products/cannedSoda.png'
+import churros from './products/churros.png'
+import donut from './products/donut.png'
+import grilledCheese from './products/grilledCheese.png'
+import hiC_Chiquito_EE from './products/hiC_Chiquito_EE.png'
+import hiC_Drink from './products/hiC_Drink.png'
+import hotDog from './products/hotDog.png'
+import missionMuffin from './products/missionMuffin.png'
+import rapiditaXd from './products/rapiditaXd.png'
+import sandwich from './products/sandwich.png'
+
 const IMAGES = {
   logos: {
-    mtLogo: require('./logos/mtLogo.svg'),
+    mtLogo,
   },
   products: {
-    cannedSoda: require('./products/cannedSoda.png'),
-    churros: require('./products/churros.png'),
-    donut: require('./products/donut.png'),
-    grilledCheese: require('./products/grilledCheese.png'),
-    hiC_Chiquito_EE: require('./products/hi-C_Chiquito_EE.png'),
-    hiC_Drink: require('./products/hi-C_Drink.png'),
-    hotDog: require('./products/hotDog.png'),
-    missionMuffin: require('./products/missionMuffin.png'),
-    rapiditaXd: require('./products/rapiditaXd.png'),
-    sandwich: require('./products/sandwich.png'),
+    cannedSoda,
+    churros,
+    donut,
+    grilledCheese, 
+    hiC_Chiquito_EE,
+    hiC_Drink, 
+    hotDog,
+    missionMuffin,
+    rapiditaXd,
+    sandwich,
   },
 }
 

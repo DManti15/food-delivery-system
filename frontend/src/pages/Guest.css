@@ -1,0 +1,73 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #00071A;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  max-height: 80px;
+  z-index: 999;
+}
+
+.mtLogo-nav {
+  width: 4em;
+  max-width: 80px;
+  padding: 5px;
+}
+
+.cart-button {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  margin-right: 5px;
+}
+
+.cart-icon {
+  color: #ffffff;
+  vertical-align: middle;
+  padding: 8px;
+  width: 3.275em;
+  max-width: 80px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 4.2em;
+  margin-bottom: 3.5vh;
+}
+
+h1, h2 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 24px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.rapidita .product-image {
+  height: 150px;
+}
+
+.mission-muffin .product-image {
+  height: 150px;
+}
+
+.canned-soda .product-image {
+  height: 150px;
+}
+
+.churros .product-image {
+  height: 150px;
+}
+
