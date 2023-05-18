@@ -45,7 +45,7 @@ class UserController extends Controller
     public function update(UserPostRequest $request, string $id)
     {
             $data = User::find($id);
-            $data->update($request->all())->validate;
+            $data->update($request->all());
             return $data;
     }
 

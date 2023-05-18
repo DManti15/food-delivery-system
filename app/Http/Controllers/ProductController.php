@@ -45,7 +45,7 @@ class ProductController extends Controller
     public function update(ProductPostRequest $request, string $id)
     {
             $data = Product::find($id);
-            $data->update($request->all())->validate;
+            $data->update($request->all());
             return $data;
     }
 

@@ -35,18 +35,13 @@ class UserPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'email' => 'required|string|unique:users,Email',
-            'password' => 'required|string'
-        ];
+            'user_type' => 'required'];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Username is required!',
-            'email.required' => 'Email is required!',
-            'password.required' => 'Password is required!'
+            'user_type.required' => 'User type is required!'
         ];
     }
 }

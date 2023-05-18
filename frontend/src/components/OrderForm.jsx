@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import Select from "react-select";
 import { options, customStyles } from "../assets/selectorStyles";
+import { useNavigate } from 'react-router-dom';
 import "./OrderForm.css";
 
 export default function OrderForm({ setCartItems }) {
+
+  const endpoint = 'http://localhost:8000/api/addToCart/'
+  const navigate = useNavigate()
+
   const [food, setFood] = useState(null);
   const [quantity, setQuantity] = useState("");
   const [delivery, setDelivery] = useState(false);
@@ -20,8 +26,10 @@ export default function OrderForm({ setCartItems }) {
     setDelivery(e.target.checked);
   };
 
-  const handleAddToCart = (e) => {
+  const handleAddToCart = async (e) => {
     e.preventDefault();
+    await axios.post(endpoint, {product_name: food.label, quantity: quantity})
+
     if (food && quantity > 0) {
       const itemPrice = food.price;
       const newItem = {

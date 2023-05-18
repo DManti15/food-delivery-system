@@ -35,20 +35,20 @@ class ProductPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ProductName' => 'required|string',
-            'ProductDescription' => 'required|string',
-            'Price' => 'required|decimal:0,2',
-            'Stock' => 'required|integer|min:0',
+            'product_name' => 'required|string',
+            'product_description' => 'required|string',
+            'price' => 'required|decimal:0,2',
+            'stock' => 'required|integer|min:0',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'ProductName.required' => 'Product Name is required!',
-            'ProductDescription.required' => 'Product Description is required!',
-            'Price.required' => 'Price is required!',
-            'Stock.required' => 'Stock is required!'
+            'product_name.required' => 'Product Name is required!',
+            'product_description.required' => 'Product Description is required!',
+            'price.required' => 'Price is required!',
+            'stock.required' => 'Stock is required!'
         ];
     }
 }
