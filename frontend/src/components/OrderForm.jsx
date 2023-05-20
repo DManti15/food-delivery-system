@@ -12,6 +12,7 @@ export default function OrderForm({ setCartItems }) {
 
   const [food, setFood] = useState(null);
   const [quantity, setQuantity] = useState("");
+  const [customer, setCustomer] = useState("guest");
   const [delivery, setDelivery] = useState(false);
 
   const handleFoodChange = (selectedOption) => {
@@ -28,12 +29,13 @@ export default function OrderForm({ setCartItems }) {
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
-    await axios.post(endpoint, {product_name: food.label, quantity: quantity})
+    await axios.post(endpoint, {product_name: food.value, quantity: quantity, customer: customer})
 
     if (food && quantity > 0) {
       const itemPrice = food.price;
       const newItem = {
         name: food.label,
+        customer: 'guest',
         quantity,
         price: itemPrice,
         delivery: delivery,

@@ -9,8 +9,9 @@ class Cart extends Model
 {
     use HasFactory;
 
-    protected $incrementing = 'false';
-
+    public $incrementing = 'false';
+    protected $primaryKey = null;
+    
     protected $fillable = [
         'quantity'
     ];

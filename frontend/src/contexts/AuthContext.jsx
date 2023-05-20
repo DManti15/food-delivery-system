@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     axiosAPI.post("/api/logout").then(() => {
       Cookies.remove("is_user_logged_in");
-      navigate("/admin-home");
+      navigate("/");
     });
   };
 

@@ -35,18 +35,21 @@ Route::get('/products/search/{productdescription}', [ProductController::class, '
 Route::post('/login', [AuthController::class, 'login']);
 
 
-Route::post('/products', [ProductController::class, 'store']);
-Route::put('/products/{id}', [ProductController::class, 'update']);
-Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
-Route::post('/addToCart', [CartController::class, 'addProduct']);
 
 Route::get('/users', [UserController::class, 'index']);
+Route::get('/myCart', [CartController::class, 'showCart']);
+Route::delete('/myCart/{id}', [CartController::class, 'deleteCartItem']);
+Route::post('/myCart', [CartController::class, 'placeOrder']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::post('/users', [UserController::class, 'store']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/products', [ProductController::class, 'store']);
+Route::put('/products/{id}', [ProductController::class, 'update']);
+Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+
 /*
 |--------------------------------------------------------------------------
 Protected Routes:
@@ -55,7 +58,7 @@ Protected Routes:
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
 //Routes for users table
-    
+
 
 //Routes for products table
     

@@ -1,13 +1,13 @@
 const options = [
-  { value: "hi-c", label: "Hi-C Te", price: 25 },
-  { value: "hotdog", label: "Hot Dog", price: 35 },
-  { value: "rapiditas", label: "Rapiditas", price: 30 },
-  { value: "mission-muffin", label: "Mission Muffin", price: 50 },
-  { value: "grilled-cheese", label: "Grilled Cheese", price: 25 },
-  { value: "sandwich", label: "Sandwich", price: 30 },
-  { value: "donuts", label: "Donuts", price: 25 },
-  { value: "soda", label: "Soda", price: 30 },
-  { value: "churros", label: "Churros", price: 20 },
+  { value: "Hi-C Te", label: "Hi-C Te", price: 25 },
+  { value: "Hot Dog", label: "Hot Dog", price: 35 },
+  { value: "Rapiditas", label: "Rapiditas", price: 30 },
+  { value: "Mission Muffin", label: "Mission Muffin", price: 50 },
+  { value: "Grilled Cheese", label: "Grilled Cheese", price: 25 },
+  { value: "Sandwich", label: "Sandwich", price: 30 },
+  { value: "Donuts", label: "Donuts", price: 25 },
+  { value: "Soda", label: "Soda", price: 30 },
+  { value: "Churros", label: "Churros", price: 20 },
 ];
 
 const customStyles = {
