@@ -26,7 +26,7 @@ use App\Http\Controllers\CartController;
 Public Routes:
 |--------------------------------------------------------------------------
 */
-//Routes for products table
+//Routes for everyone
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
@@ -36,19 +36,26 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 
-
+//Routes for users table
 Route::get('/users', [UserController::class, 'index']);
-Route::get('/myCart', [CartController::class, 'showCart']);
-Route::delete('/myCart/{id}', [CartController::class, 'deleteCartItem']);
-Route::post('/myCart', [CartController::class, 'placeOrder']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::post('/users', [UserController::class, 'store']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
-Route::post('/logout', [AuthController::class, 'logout']);
+
+//Routes for products table
 Route::post('/products', [ProductController::class, 'store']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
 Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+
+//Routes for shopping cart
+Route::get('/myCart', [CartController::class, 'showCart']);
+Route::delete('/myCart/{id}', [CartController::class, 'deleteCartItem']);
+Route::post('/myCart', [CartController::class, 'placeOrder']);
+
+
+Route::post('/logout', [AuthController::class, 'logout']);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,10 +64,10 @@ Protected Routes:
 */
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
-//Routes for users table
 
 
-//Routes for products table
+
+
     
 
 
