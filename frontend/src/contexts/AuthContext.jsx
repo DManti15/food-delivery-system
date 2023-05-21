@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   const csrf = () => axiosAPI.get("/sanctum/csrf-cookie");
 
   const getUser = async () => {
-    const { data } = await axiosAPI.get("/api/users");
+    const { data } = await axiosAPI.get("/api/user");
     if (!Cookies.get("username")) {
       Cookies.set("username", JSON.stringify(data));
     }
@@ -58,14 +58,13 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    isLoggedIn();
     if (Cookies.get("username")) {
       const findCookie = Cookies.get("username");
       const userName = JSON.parse(findCookie);
       setUser(userName);
     }
   }, []);
-
+  
   return (
     <AuthContext.Provider
       value={{ user, getUser, errors, login, logout, isLoggedIn }}

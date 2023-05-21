@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { ArrowRight, Lock, User } from "phosphor-react";
-import { useNavigate } from 'react-router-dom';
-import "./LoginForm.css";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const endpoint = 'http://localhost:8000/api/register'
+import axiosAPI from "../api/axiosAPI";
+
+import "../styles/LoginForm.css";
+
+const endpoint = "/api/register";
 
 function CreateUser() {
   const [username, setUsername] = useState("");
@@ -13,20 +16,27 @@ function CreateUser() {
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const navigate = useNavigate();
 
+  //const csrf = () => axiosAPI.get("/sanctum/csrf-cookie");
+
   const handleSubmit = async (e) => {
+    //await csrf();
     e.preventDefault();
-    await axios.post(endpoint, { username: username, email: email, password: password, password_confirmation: password_confirmation });
-    navigate('/guest')
+    const response = await axiosAPI.post(endpoint, {
+      username: username,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation,
+    });
+    console.log(response);
+    navigate("/guest");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="input-group">
         <label>Username</label>
-        <div
-          className='username'
-         >
-            <input
+        <div className="username">
+          <input
             className="form-input"
             name="username"
             type="text"
@@ -34,26 +44,22 @@ function CreateUser() {
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Username"
           />
-            </div>
-            </div>
-        <label >Email</label>
-        <div
-          className='email'
-        >
-            <input
-            className="form-input"
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email address"
-          />
-            </div>
+        </div>
+      </div>
+      <label>Email</label>
+      <div className="email">
+        <input
+          className="form-input"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email address"
+        />
+      </div>
       <div className="input-group">
-        <label >Password</label>
-        <div
-          className='password'
-        >
+        <label>Password</label>
+        <div className="password">
           <Lock className="input-icon" color="currentColor" size={"1.5em"} />
           <input
             className="form-input"
@@ -64,10 +70,8 @@ function CreateUser() {
             placeholder="Password"
           />
         </div>
-        <label >Password Confirmation</label>
-        <div
-          className='passwordConf'
-        >
+        <label>Password Confirmation</label>
+        <div className="passwordConf">
           <Lock className="input-icon" color="currentColor" size={"1.5em"} />
           <input
             className="form-input"
@@ -79,7 +83,7 @@ function CreateUser() {
           />
         </div>
       </div>
-      
+
       <div className="submit-group">
         <h2>Register</h2>
         <button type="submit">

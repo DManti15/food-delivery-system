@@ -1,9 +1,11 @@
-import React, { useState } from "react";
 import axios from 'axios';
-import Select from "react-select";
-import { options, customStyles } from "../assets/selectorStyles";
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import "./OrderForm.css";
+import Select from "react-select";
+
+import { customStyles, options } from "../assets/selectorStyles";
+
+import "../styles/OrderForm.css";
 
 export default function OrderForm({ setCartItems }) {
 

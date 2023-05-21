@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import mtLogo from "../assets/images/logos/mtLogo.svg";
 import LoginForm from "../components/LoginForm";
 
-import "./AdminLogin.css";
+import "../styles/AdminLogin.css";
 
 function AdminLogin() {
   return (

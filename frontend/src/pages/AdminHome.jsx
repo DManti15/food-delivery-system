@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import useAuthContext from "../contexts/AuthContext";
-
 import { useNavigate } from "react-router-dom";
+
+import useAuthContext from "../contexts/AuthContext";
 
 function AdminHome() {
   const { user, logout } = useAuthContext();
   
-
   return (
     <div>
       <div style={{ fontSize: "3em" }}>

@@ -1,6 +1,8 @@
 import React from "react";
-import "./Home.css";
+
 import ShowProducts from "../components/ShowProducts";
+
+import "../styles/Home.css";
 
 function Products() {
   return (

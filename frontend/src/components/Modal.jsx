@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
 import { X } from "phosphor-react";
-import "./Modal.css";
+import React, { useEffect, useState } from "react";
+
+import "../styles/Modal.css";
 
 const Modal = ({ setIsOpen, cartItems, setCartItems }) => {
   const [totalPrice, setTotalPrice] = useState(0);

@@ -43,8 +43,9 @@ function App() {
           <Route path="create" element={<CreateProduct />} />
           <Route path="edit/:id" element={<EditProduct />} />
           <Route path="users" element={<ShowUsers />} />
-          <Route path="editUser/:id" element={<EditUser />} />
           <Route path="createUser" element={<CreateUser />} />
+          <Route path="editUser/:id" element={<EditUser />} />
+          
         </Route>
       </Routes>
     </div>
