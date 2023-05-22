@@ -1,5 +1,5 @@
+import { ArrowRight, Lock, User } from "@phosphor-icons/react";
 import axios from "axios";
-import { ArrowRight, Lock, User } from "phosphor-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

@@ -1,17 +1,21 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Sidebar from "../components/Sidebar";
 import useAuthContext from "../contexts/AuthContext";
+
+import '../styles/AdminHome.css'
 
 function AdminHome() {
   const { user, logout } = useAuthContext();
-  
+
   return (
-    <div>
-      <div style={{ fontSize: "3em" }}>
+    <div className="admin-home">
+      <Sidebar />
+      <div className="admin-content">
         Hello {user?.username}, This is the admin dashboard
+        <button onClick={logout}>Logout</button>
       </div>
-      <button onClick={logout}>Logout</button>
     </div>
   );
 }

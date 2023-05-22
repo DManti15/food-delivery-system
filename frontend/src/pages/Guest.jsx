@@ -1,4 +1,4 @@
-import { ShoppingCart } from "phosphor-react";
+import { ShoppingCart } from "@phosphor-icons/react";
 import React, { useState } from "react";
 
 import IMAGES from "../assets/images/index.js";

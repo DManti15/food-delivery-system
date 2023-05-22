@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
 *,
 ::before,
 ::after {
@@ -11,7 +17,6 @@
 
   color-scheme: light dark;
   color: #000000;
-  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -85,7 +90,7 @@ input:-webkit-autofill {
 /* Mobile Background Media Query */
 @media (max-width: 480px) {
   body {
-    background: url("./assets/images/backgrounds/bkgImage_logInAdminView.png") no-repeat center center fixed;
+    background: url("../assets/images/backgrounds/bkgImage_logInAdminView.png") no-repeat center center fixed;
     background-size: 100% 100%;
   }
 }
@@ -93,7 +98,7 @@ input:-webkit-autofill {
 /* Tablet Background Media Query */
 @media (min-width: 481px) and (max-width: 1024px) {
   body {
-    background: url("./assets/images/backgrounds/bkgImage_iPadTablet_signUpViewP.png") no-repeat center center fixed;
+    background: url("../assets/images/backgrounds/bkgImage_iPadTablet_signUpViewP.png") no-repeat center center fixed;
     background-size: cover;
   }
 }
@@ -101,7 +106,7 @@ input:-webkit-autofill {
 /* Desktop Background Media Query */
 @media (min-width: 1025px) {
   body {
-    background: url("./assets/images/backgrounds/bkgImage_webSignUpView.png") no-repeat center center fixed;
+    background: url("../assets/images/backgrounds/bkgImage_webSignUpView.png") no-repeat center center fixed;
     background-size: cover;
   }
 }

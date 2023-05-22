@@ -1,10 +1,8 @@
-.admin-container {
-  margin: 2vh 0;
-}
-
 .mtLogo {
   width: 62.5%;
   max-width: 223px;
+  margin: auto;
+  display: block;
 }
 
 h1 {
@@ -12,6 +10,7 @@ h1 {
   font-weight: 500;
   margin-top: -16px;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .form-input {

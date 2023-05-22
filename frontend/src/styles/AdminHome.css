@@ -1,0 +1,19 @@
+.admin-home {
+  height: 100%;
+}
+
+.admin-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  margin-left: 270px;
+}
+
+@media (min-width: 1025px) {
+  .admin-content {
+    background: url("../assets/images/backgrounds/bkgImage_webSignUpView.png") no-repeat right center fixed;
+    background-size: 90% 100%;
+  }
+}

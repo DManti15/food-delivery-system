@@ -1,4 +1,4 @@
-import { ArrowRight, Lock, User } from "phosphor-react";
+import { ArrowRight, Lock, User } from "@phosphor-icons/react";
 import React, { useEffect, useState } from "react";
 
 import useAuthContext from "../contexts/AuthContext";
