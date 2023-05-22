@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import Sidebar from "../components/Sidebar";
 import useAuthContext from "../contexts/AuthContext";
@@ -15,6 +15,7 @@ function AdminHome() {
       <div className="admin-content">
         Hello {user?.username}, This is the admin dashboard
         <button onClick={logout}>Logout</button>
+        <Outlet />
       </div>
     </div>
   );

@@ -15,14 +15,14 @@ import Guest from "./pages/Guest";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 
-{/*
+{
+  /*
 import ShowOrders from "./components/ShowOrders";
 import ShowMyOrders from "./components/ShowMyOrders";
-*/}
-
+*/
+}
 
 import "./styles/App.css";
-
 
 function App() {
   return (
@@ -39,11 +39,12 @@ function App() {
           */}
         </Route>
         <Route element={<AuthLayout />}>
-          <Route path="admin-home" element={<AdminHome />} />
-          <Route path="products" element={<Products />} />
+          <Route path="admin-home" element={<AdminHome />}>
+            <Route path="products" element={<Products />} />
+            <Route path="users" element={<ShowUsers />} />
+          </Route>
           <Route path="create" element={<CreateProduct />} />
           <Route path="edit/:id" element={<EditProduct />} />
-          <Route path="users" element={<ShowUsers />} />
           <Route path="createUser" element={<CreateUser />} />
           <Route path="editUser/:id" element={<EditUser />} />
         </Route>

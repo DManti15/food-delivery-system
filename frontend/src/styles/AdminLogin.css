@@ -1,7 +1,14 @@
+.admin-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .mtLogo {
   width: 62.5%;
-  max-width: 223px;
-  margin: auto;
+  max-width: 215px;
+  margin: 0 auto;
   display: block;
 }
 

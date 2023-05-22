@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import IMAGES from "../assets/images";
+import { SidebarData } from "./SidebarData";
 
 import "../styles/Sidebar.css";
 
@@ -13,14 +14,23 @@ function Sidebar() {
           <img
             src={IMAGES.logos.mtLogo}
             alt="Mission Trip ministry logo"
-            className="mtLogo-nav"
+            className="mtLogo-side"
           />
           <h2>Admin Dashboard</h2>
         </div>
         <ul className="side-items">
-          <li><Link className="side-link">Dashboard</Link></li>
-          <li><Link className="side-link">Products</Link></li>
-          <li><Link className="side-link">Users</Link></li>
+          {SidebarData.map((val, key) => {
+            return (
+              <li key={key}>
+                <div className="item-group">
+                  <Link className="side-link" to={val.link}>
+                    <div className="item-icon">{val.icon}</div>
+                    <div className="item-title">{val.title}</div>
+                  </Link>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </div>

@@ -29,10 +29,6 @@ body {
   color: rgba(0, 7, 26, 0.50);
 }
 
-h1 {
-  line-height: 1.1;
-}
-
 button {
   border-radius: 50px;
   border: none;
