@@ -14,10 +14,11 @@ import AdminLogin from "./pages/AdminLogin";
 import Guest from "./pages/Guest";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import ShowOrders from "./components/ShowOrders";
+import EditOrder from "./components/EditOrder";
 
 {
   /*
-import ShowOrders from "./components/ShowOrders";
 import ShowMyOrders from "./components/ShowMyOrders";
 */
 }
@@ -34,7 +35,7 @@ function App() {
           <Route path="admin" element={<AdminLogin />} />
           <Route path="cart" element={<Cart />} />
           <Route path="orders" element={<ShowOrders />} />
-          <Route path="editOrder/:id" element={<EditOrders />} />
+          <Route path="editOrder/:id" element={<EditOrder />} />
           {/*
           <Route path="orders" element={<ShowOrders />} />
           <Route path="myOrders" element={<ShowMyOrders />} />

@@ -20,7 +20,7 @@ const EditUser = () => {
     const update = async (e) => {
         e.preventDefault()
         await axios.put(`${endpoint}${id}`, {user_type: role})
-        navigate('/users')
+        navigate('/admin-home/users')
     }
 
     const handleRoleChange = (selectedOption) => {
