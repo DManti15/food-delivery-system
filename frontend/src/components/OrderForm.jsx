@@ -11,7 +11,7 @@ export default function OrderForm({ setCartItems }) {
   const navigate = useNavigate()
 
   const [food, setFood] = useState(null);
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(0);
   const [customer, setCustomer] = useState("guest");
   const [delivery, setDelivery] = useState(false);
 
@@ -21,10 +21,6 @@ export default function OrderForm({ setCartItems }) {
 
   const handleQuantityChange = (e) => {
     setQuantity(e.target.value);
-  };
-
-  const handleDeliveryChange = (e) => {
-    setDelivery(e.target.checked);
   };
 
   const handleAddToCart = async (e) => {
@@ -72,16 +68,6 @@ export default function OrderForm({ setCartItems }) {
           value={quantity}
           onChange={handleQuantityChange}
         />
-        <div className="delivery-checkbox">
-          <label htmlFor="delivery">Add Delivery</label>
-          <input
-            type="checkbox"
-            name="delivery"
-            id="delivery"
-            checked={delivery}
-            onChange={handleDeliveryChange}
-          />
-        </div>
         <button type="submit">Add to cart</button>
       </form>
     </div>

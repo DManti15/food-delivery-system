@@ -20,7 +20,7 @@ class CartController extends Controller
         $productQuantity = $request->quantity;
 
         $cartItem = new Cart();
-        $cartItem->customer = 'guest';
+        $cartItem->setAttribute('customer', 'guest');
         $cartItem->product_id = $productId;
         $cartItem->quantity = $productQuantity;
 
@@ -29,10 +29,12 @@ class CartController extends Controller
         if($cartItem->quantity > $productStock) {
             return response()->json(['status' => 'There are not enough products. Product stock available is '.$productStock]);
         } else {
+
             $existingCartItem = Cart::where('customer', $cartItem->customer)->where('product_id', $cartItem->product_id)->first();
 
         if ($existingCartItem) {
-            $existingCartItem->update(['quantity' => $cartItem->quantity]);
+            $existingCartItem->quantity = $cartItem->quantity;
+            $existingCartItem->save();
             return response()->json($existingCartItem);
         } else {
             $cartItem->save();
@@ -54,20 +56,41 @@ class CartController extends Controller
     }
 
     public function placeOrder(Request $request) {
+        
+        if(empty($request->cart_items)) {
+            return response()->json(['status' => 'The shopping cart is empty, please add a product first.']);
+        } else {
+
         $order = new Order();
         $order->customer = 'guest';
         $order->phone = $request->phone;
-        $order->deliveryAddress = $request->delivery_address;
+        $order->delivery_address = $request->delivery_address;
         $order->comments = $request->comments;
-        $order->order_total = 50000;
-
+        $order->order_total = $request->order_total;
         $order->save();
 
-        
+        $order = Order::where('customer', 'guest')->orderBy('created_at', 'desc')->first();
+        $cartItems = $request->cart_items;
 
-        $orderItems = Product::where();
+        foreach ($cartItems as $cartItem) {
+            $productStock = Product::where('product_id', $cartItem['product_id'])->value('stock');
+
+            if($cartItem['quantity'] > $productStock) {
+                return response()->json(['status' => 'There are not enough products. Product stock available is '.$productStock]);
+            } else {
+            Product::where('product_id', $cartItem['product_id'])->decrement('stock', $cartItem['quantity']);
+            $orderItem = new OrderItem();
+            $orderItem->order_id = $order['order_id'];
+            $orderItem->product_id = $cartItem['product_id'];
+            $orderItem->quantity = $cartItem['quantity'];
+            $orderItem->price = $cartItem['quantity'] * $cartItem['price'];
+            $orderItem->save();
+            }
+        }
+
+        Cart::where('customer', 'guest')->delete();
+    }
 
     }
 
 }
-

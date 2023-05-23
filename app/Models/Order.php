@@ -14,9 +14,13 @@ class Order extends Model
     protected  $fillable = [
         'phone',
         'delivery_address',
-        'comments'
+        'comments',
+        'order_status',
+        'order_total'
     ];
 
-    const CREATED_AT = 'ordered_at';
-    const UPDATED_AT = 'canceled_at';
+    public function orderItems() {
+        return $this->hasMany(OrderItem::class, 'order_id');
+    }
+
 }

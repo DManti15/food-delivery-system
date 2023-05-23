@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrderItemRequest extends FormRequest
+class OrderStatusRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,21 +21,17 @@ class OrderItemRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'product_name' => 'required|string',
-            'customer' => 'required|string',
-            'quantity' => 'required'
+            'order_status' => 'required'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'product_name.required' => 'Product name is required!',
-            'customer.required' => 'Customer is required!',
-            'quantity.required' => 'Quantity is required!'
+            'order_status.required' => 'Order status is required!'
         ];
     }
 }

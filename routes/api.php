@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 
 /*
@@ -26,7 +27,7 @@ use App\Http\Controllers\CartController;
 Public Routes:
 |--------------------------------------------------------------------------
 */
-//Routes for everyone
+//Routes for products table
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
@@ -35,24 +36,24 @@ Route::get('/products/search/{productdescription}', [ProductController::class, '
 Route::post('/login', [AuthController::class, 'login']);
 
 
-
-//Routes for users table
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::post('/users', [UserController::class, 'store']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
-//Routes for products table
 Route::post('/products', [ProductController::class, 'store']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
 Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
-//Routes for shopping cart
+Route::post('/addToCart', [CartController::class, 'addProduct']);
 Route::get('/myCart', [CartController::class, 'showCart']);
 Route::delete('/myCart/{id}', [CartController::class, 'deleteCartItem']);
 Route::post('/myCart', [CartController::class, 'placeOrder']);
 
+Route::get('/orders', [OrderController::class, 'showOrders']);
+Route::get('/orders/{id}', [OrderController::class, 'showOrder']);
+Route::put('/orders/{id}', [OrderController::class, 'editOrderStatus']);
 
 Route::post('/logout', [AuthController::class, 'logout']);
 
@@ -64,10 +65,10 @@ Protected Routes:
 */
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
+//Routes for users table
 
 
-
-
+//Routes for products table
     
 
 

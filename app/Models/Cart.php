@@ -10,9 +10,11 @@ class Cart extends Model
     use HasFactory;
 
     public $incrementing = 'false';
-    protected $primaryKey = null;
+    public $primaryKey = null;
     
     protected $fillable = [
+        'product_id',
+        'customer',
         'quantity'
     ];
 }

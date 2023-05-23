@@ -14,6 +14,8 @@ import ShowUsers from "./components/ShowUsers";
 import EditUser from "./components/EditUser";
 import CreateUser from "./components/CreateUser";
 import Cart from "./components/Cart";
+import ShowOrders from "./components/ShowOrders";
+import EditOrders from "./components/EditOrder";
 {/*
 import ShowOrders from "./components/ShowOrders";
 import ShowMyOrders from "./components/ShowMyOrders";
@@ -32,19 +34,21 @@ function App() {
           <Route path="guest" element={<Guest />} />
           <Route path="admin" element={<AdminLogin />} />
           <Route path="cart" element={<Cart />} />
-          {/*
-          <Route path="orders" element={<ShowOrders />} />
-          <Route path="myOrders" element={<ShowMyOrders />} />
-          */}
-        </Route>
-        <Route element={<AuthLayout />}>
-          <Route path="admin-home" element={<AdminHome />} />
           <Route path="products" element={<Products />} />
           <Route path="create" element={<CreateProduct />} />
           <Route path="edit/:id" element={<EditProduct />} />
           <Route path="users" element={<ShowUsers />} />
           <Route path="editUser/:id" element={<EditUser />} />
           <Route path="createUser" element={<CreateUser />} />
+          <Route path="orders" element={<ShowOrders />} />
+          <Route path="editOrder/:id" element={<EditOrders />} />
+          {/*
+          <Route path="myOrders" element={<ShowMyOrders />} />
+          */}
+        </Route>
+        <Route element={<AuthLayout />}>
+          <Route path="admin-home" element={<AdminHome />} />
+
         </Route>
       </Routes>
     </div>
