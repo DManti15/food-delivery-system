@@ -1,10 +1,12 @@
+import { ShoppingCart } from "@phosphor-icons/react";
 import React, { useState } from "react";
+
 import IMAGES from "../assets/images/index.js";
-import "./Guest.css";
-import { ShoppingCart } from "phosphor-react";
-import ProductCard from "../components/ProductCard.jsx";
-import OrderForm from "../components/OrderForm.jsx";
 import Modal from "../components/Modal.jsx";
+import OrderForm from "../components/OrderForm.jsx";
+import ProductCard from "../components/ProductCard.jsx";
+
+import "../styles/Guest.css";
 
 function Guest() {
   const [isOpen, setIsOpen] = useState(false);

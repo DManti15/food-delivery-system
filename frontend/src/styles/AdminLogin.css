@@ -1,10 +1,15 @@
 .admin-container {
-  margin: 2vh 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .mtLogo {
   width: 62.5%;
-  max-width: 223px;
+  max-width: 215px;
+  margin: 0 auto;
+  display: block;
 }
 
 h1 {
@@ -12,6 +17,7 @@ h1 {
   font-weight: 500;
   margin-top: -16px;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .form-input {

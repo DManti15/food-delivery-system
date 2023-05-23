@@ -6,6 +6,10 @@
   margin-bottom: 3.5vh;
 }
 
+.order-title {
+  text-align: center;
+}
+
 .order-section form {
   display: flex;
   align-items: center;

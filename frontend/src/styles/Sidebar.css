@@ -1,0 +1,83 @@
+.sidebar-container {
+  width: 20vw;
+}
+
+.sidebar {
+  height: 100%;
+  width: 20vw;
+  background-color: #00071A;
+  position: fixed;
+  color: #ffffff;
+}
+
+.side-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: .5rem;
+}
+
+.mtLogo-side {
+  width: 4.5rem;
+  margin-right: .75rem;
+}
+
+.side-header h2 {
+  display: inline-block;
+  font-size: 1.65rem;
+  font-weight: 600;
+  max-width: 132px;
+  line-height: 1.2;
+}
+
+.side-items {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-items li {
+  display: flex;
+  justify-content: center;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  width: 100%;
+  transition: .25s ease-in-out;
+}
+
+.side-items li:hover {
+  transform: scale(1.1);
+  transition: .25s ease-in-out;
+}
+
+.item-group {
+  width: 180px;
+}
+
+.side-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: #ffffff;
+  max-width: 180px;
+}
+
+.item-icon {
+  margin-right: .75rem;
+}
+
+.item-title {
+  margin-bottom: .25rem;
+}
+
+
+
+
+

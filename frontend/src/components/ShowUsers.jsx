@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import axiosAPI from '../api/axiosAPI';
 
-const endPoint = 'http://localhost:8000/api/users/'
+const endPoint = '/api/users/'
 
 const ShowUsers = () => {
     const navigate = useNavigate()
@@ -15,13 +15,13 @@ const ShowUsers = () => {
 
 
     const getAllUsers = async () => {
-        const response = await axios.get(`${endPoint}`)
+        const response = await axiosAPI.get(`${endPoint}`)
         setUsers(response.data)
         console.log(response.data)
     }
 
     const deleteAllUsers = async (id) => {
-        await axios.delete(`${endPoint}${id}`)
+        await axiosAPI.delete(`${endPoint}${id}`)
         navigate('/users')
     }
 

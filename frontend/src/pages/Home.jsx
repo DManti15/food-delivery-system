@@ -1,10 +1,11 @@
 import React from "react";
-import "./Home.css";
 import { Link } from "react-router-dom";
+
+import "../styles/Home.css";
 
 function Home() {
   return (
-    <div>
+    <div className="home">
       <h1 className="header">Which type of user are you?</h1>
       <div className="user-type">
         <Link to="guest">
