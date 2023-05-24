@@ -7,6 +7,9 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { IconProvider } from "./contexts/IconContext";
 
 import "./styles/index.css";
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
