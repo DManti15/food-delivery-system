@@ -51,7 +51,7 @@ const Modal = ({ setIsOpen, cartItems, setCartItems }) => {
             <h5 className="heading blue-text">My Cart</h5>
           </div>
           <div className="cart-table">
-            <table>
+            <table className="modal-table">
               <thead>
                 <tr>
                   <th className="red-text">Name</th>

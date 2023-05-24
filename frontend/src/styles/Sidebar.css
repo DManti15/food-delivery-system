@@ -7,10 +7,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 20vw;
+  width: 260px;
   background-color: #00071A;
   position: fixed;
   color: #ffffff;
+  z-index: 999;
 }
 
 .side-header {
@@ -26,11 +27,12 @@
   margin-right: .75rem;
 }
 
-.side-header h2 {
+.side-header h1 {
   display: inline-block;
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.2;
+  text-align: initial;
 }
 
 .side-items {
@@ -137,13 +139,3 @@
   z-index: 2;
   margin: .5rem .5rem;
 }
-
-
-
-
-
-
-
-
-
-

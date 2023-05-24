@@ -14,7 +14,7 @@ const CreateProduct = () => {
     const store = async (e) => {
         e.preventDefault()
         await axiosAPI.post(endpoint, {product_name: name, product_description: description, price: price, stock: stock})
-        navigate('/products')
+        navigate('/admin-home/products')
     }
 
 return (

@@ -25,12 +25,12 @@ const Sidebar = () => {
             alt="Mission Trip ministry logo"
             className="mtLogo-side"
           />
-          <h2>Admin Dashboard</h2>
+          <h1>Admin Dashboard</h1>
         </div>
         <ul className="side-items">
           {SidebarData.map((val, key) => {
             return (
-              <li key={key}>
+              <li onClick={ () => tableTitle(val.title) } key={key}>
                 <NavLink className="side-link" to={val.link} end>
                   <div className="item-group">
                     <div className="icon item-icon">{val.icon}</div>

@@ -1,20 +1,18 @@
-import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 
 import Sidebar from "../components/Sidebar";
-import useAuthContext from "../contexts/AuthContext";
+import { SidebarData } from "../components/SidebarData";
 
-import '../styles/AdminHome.css'
+import "../styles/AdminHome.css";
 
 function AdminHome() {
-  const { logout } = useAuthContext();
-
   return (
     <div className="admin-home">
       <Sidebar />
-      <div className="admin-content">
+      <main className="admin-content">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 }
