@@ -34,7 +34,7 @@ const EditOrder = () => {
     const update = async (e) => {
         e.preventDefault()
         const updatedComments = comments ? cancelReason + '\n' + comments : cancelReason;
-        await axios.put(`${endpoint}${id}`, {order_status: orderStatus, comments: updatedComments})
+        await axiosAPI.put(`${endpoint}${id}`, {order_status: orderStatus, comments: updatedComments})
         navigate('/orders')
     }
 
@@ -50,7 +50,7 @@ const EditOrder = () => {
 
       useEffect(() => {
         const getOrderById = async () => {
-          const response = await axios.get(`${endpoint}${id}`);
+          const response = await axiosAPI.get(`${endpoint}${id}`);
           setOrderId(response.data.orderId);
           setCustomer(response.data.customer);
           setOrderStatus(response.data.order_status);
