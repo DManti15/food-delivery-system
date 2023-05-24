@@ -20,7 +20,6 @@ const ShowOrders = () => {
     const [orders, setOrders] = useState([]);
     const [filter, setFilter] = useState('');
     const [filteredOrders, setFilteredOrders] = useState([]);
-    const [timestamp, setTimestamp] = useState('');
 
     useEffect( ()=> {
         getAllOrders()
@@ -42,7 +41,6 @@ const ShowOrders = () => {
     const getAllOrders = async () => {
         const response = await axios.get(`${endpoint}`)
         setOrders(response.data)
-        console.log(response.data)
     }
 
   return (
@@ -88,8 +86,11 @@ const ShowOrders = () => {
                         <td> {order.order_status} </td>
                         <td>{dayjs(order.updated_at).format('DD/MM/YYYY HH:mm:ss')}</td>
                         <td>
-                            <Link to={`/editOrder/${order.order_id}`} ><button className='btn btn-warning'>Edit</button></Link>
-                        </td>
+                            {order.order_status !== 'Canceled' && order.order_status !== 'Delivered' && (
+                                <Link to={`/editOrder/${order.order_id}`} >
+                                <button className='btn btn-warning'>Edit</button></Link>
+                            )}
+                        </td> 
                     </tr>
                 )))}
             </tbody>
