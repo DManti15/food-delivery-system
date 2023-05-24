@@ -24,6 +24,7 @@ import ShowMyOrders from "./components/ShowMyOrders";
 }
 
 import "./styles/App.css";
+import ShowProducts from "./components/ShowProducts";
 
 function App() {
   return (
@@ -43,7 +44,7 @@ function App() {
         </Route>
         <Route element={<AuthLayout />}>
           <Route path="admin-home" element={<AdminHome />}>
-            <Route path="products" element={<Products />} />
+            <Route path="products" element={<ShowProducts />} />
             <Route path="users" element={<ShowUsers />} />
           </Route>
           <Route path="create" element={<CreateProduct />} />

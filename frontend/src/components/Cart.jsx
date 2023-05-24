@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const endpoint = 'http://localhost:8000/api/myCart/'
+import axiosAPI from '../api/axiosAPI';
+
+const endpoint = '/api/myCart/'
 
 const Cart = () => {
 
@@ -54,7 +55,7 @@ const Cart = () => {
       };
 
     const getAllCartItems = async () => {
-        const response = await axios.get(`${endpoint}`);
+        const response = await axiosAPI.get(`${endpoint}`);
         const items = response.data;
         console.log(response.data);
         setCartItems(items);
@@ -62,13 +63,13 @@ const Cart = () => {
     }
 
     const deleteCartItem = async (id) => {
-        await axios.delete(`${endpoint}${id}`)
+        await axiosAPI.delete(`${endpoint}${id}`)
         getAllCartItems();
     }
 
     const handleCheckoutClick = async () => {
       console.log(totalPrice);
-        await axios.post(endpoint, {cart_items: cartItems, phone: phone, delivery_address: deliveryAddress, comments: comments, order_total: totalPrice + (delivery ? 5 : 0)})
+        await axiosAPI.post(endpoint, {cart_items: cartItems, phone: phone, delivery_address: deliveryAddress, comments: comments, order_total: totalPrice + (delivery ? 5 : 0)})
         navigate('/guest');
       };
 

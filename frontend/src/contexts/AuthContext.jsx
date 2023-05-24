@@ -10,12 +10,13 @@ const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const csrf = () => axiosAPI.get("/sanctum/csrf-cookie");
 
   const getUser = async () => {
-    const { data } = await axiosAPI.get("/api/users");
+    const { data } = await axiosAPI.get("/api/user");
     if (!Cookies.get("username")) {
       Cookies.set("username", JSON.stringify(data));
     }
@@ -27,17 +28,20 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axiosAPI.post("/api/login", { email, password });
       console.log(response);
+      setIsLoading(false);
       await getUser();
       Cookies.set("is_user_logged_in", true, {
         expires: 86400,
         sameSite: "lax",
       });
       navigate("/admin-home");
+      setErrors([]);
       console.log("success");
     } catch (error) {
       if (error.response && error.response.status === 401) {
         setErrors(error.response.data.errors);
       }
+      setIsLoading(false);
       console.log(error);
     }
   };
@@ -67,7 +71,7 @@ export const AuthProvider = ({ children }) => {
   
   return (
     <AuthContext.Provider
-      value={{ user, getUser, errors, login, logout, isLoggedIn }}
+      value={{ user, getUser, errors, login, logout, isLoggedIn, isLoading, setIsLoading }}
     >
       {children}
     </AuthContext.Provider>

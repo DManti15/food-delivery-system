@@ -1,8 +1,9 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const endpoint = 'http://localhost:8000/api/products/'
+import axiosAPI from '../api/axiosAPI';
+
+const endpoint = '/api/products/'
 const CreateProduct = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -12,7 +13,7 @@ const CreateProduct = () => {
 
     const store = async (e) => {
         e.preventDefault()
-        await axios.post(endpoint, {product_name: name, product_description: description, price: price, stock: stock})
+        await axiosAPI.post(endpoint, {product_name: name, product_description: description, price: price, stock: stock})
         navigate('/products')
     }
 

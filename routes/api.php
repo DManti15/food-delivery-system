@@ -60,12 +60,16 @@ Protected Routes:
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => ['auth:sanctum']], function () {
-  
+
 
   //Routes for products table
   Route::post('/products', [ProductController::class, 'store']);
   Route::put('/products/{id}', [ProductController::class, 'update']);
   Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+
+  Route::get('/user', function (Request $request) {
+    return $request->user();
+  });
 
   Route::post('/logout', [AuthController::class, 'logout']);
 });

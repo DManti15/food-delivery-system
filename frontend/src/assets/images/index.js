@@ -9,6 +9,7 @@ import hotDog from './products/hotDog.png'
 import missionMuffin from './products/missionMuffin.png'
 import rapiditaXd from './products/rapiditaXd.png'
 import sandwich from './products/sandwich.png'
+import avatar from './placeholders/avatarPlaceholder.png'
 
 const IMAGES = {
   logos: {
@@ -25,6 +26,9 @@ const IMAGES = {
     missionMuffin,
     rapiditaXd,
     sandwich,
+  },
+  placeholders: {
+    avatar,
   },
 }
 

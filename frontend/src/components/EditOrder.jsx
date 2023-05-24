@@ -1,9 +1,10 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Select from "react-select";
 
-const endpoint = 'http://localhost:8000/api/orders/'
+import axiosAPI from '../api/axiosAPI';
+
+const endpoint = '/api/orders/'
 
 const options = [
     { value: 1, label: "Queued"},
@@ -27,7 +28,7 @@ const EditOrder = () => {
         setComments(comments => `${comments}###${cancelReason}`)
         console.log(cancelReason)
         console.log(comments)
-        await axios.put(`${endpoint}${id}`, {order_status: orderStatus, comments: comments})
+        await axiosAPI.put(`${endpoint}${id}`, {order_status: orderStatus, comments: comments})
         navigate('/orders')
     }
 
@@ -41,7 +42,7 @@ const EditOrder = () => {
 
     useEffect( () => {
         const getOrderById = async () => {
-            const response = await axios.get(`${endpoint}${id}`)
+            const response = await axiosAPI.get(`${endpoint}${id}`)
             setOrderId(response.data.orderId)
             setCustomer(response.data.customer)
             setOrderStatus(response.data.orderStatus)

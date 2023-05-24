@@ -1,8 +1,9 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const endpoint = 'http://localhost:8000/api/products/'
+import axiosAPI from '../api/axiosAPI';
+
+const endpoint = '/api/products/'
 const EditProduct = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -13,13 +14,13 @@ const EditProduct = () => {
 
     const update = async (e) => {
         e.preventDefault()
-        await axios.put(`${endpoint}${id}`, {product_name: name, product_description: description, price: price, stock: stock})
+        await axiosAPI.put(`${endpoint}${id}`, {product_name: name, product_description: description, price: price, stock: stock})
         navigate('/products')
     }
 
     useEffect( () => {
         const getProductById = async () => {
-            const response = await axios.get(`${endpoint}${id}`)
+            const response = await axiosAPI.get(`${endpoint}${id}`)
             setName(response.data.product_name)
             setDescription(response.data.product_description)
             setPrice(response.data.price)

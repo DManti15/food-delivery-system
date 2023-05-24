@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
-const endPoint = 'http://localhost:8000/api'
+import axiosAPI from '../api/axiosAPI';
+
+const endPoint = '/api/products'
 
 const ShowProducts = () => {
     const navigate = useNavigate()
@@ -15,13 +16,13 @@ const ShowProducts = () => {
 
 
     const getAllProducts = async () => {
-        const response = await axios.get(`${endPoint}/products`)
+        const response = await axiosAPI.get(`${endPoint}`)
         setProducts(response.data)
         console.log(response.data)
     }
 
     const deleteAllProducts = async (id) => {
-        await axios.delete(`${endPoint}/products/${id}`)
+        await axiosAPI.delete(`${endPoint}/products/${id}`)
         navigate('/products')
     }
 
