@@ -8,7 +8,7 @@ const Cart = () => {
 
     const navigate = useNavigate()
     const [comments, setComments] = useState("");
-    const [deliveryAddress, setDeliveryAddress] = useState("");
+    const [deliveryAddress, setDeliveryAddress] = useState("Pick up order");
     const [phone, setPhone] = useState("");
     const [delivery, setDelivery] = useState(false);
     const [visible, setVisible] = useState(false);
@@ -67,7 +67,7 @@ const Cart = () => {
     }
 
     const handleCheckoutClick = async () => {
-      console.log(totalPrice);
+      console.log(deliveryAddress);
         await axios.post(endpoint, {cart_items: cartItems, phone: phone, delivery_address: deliveryAddress, comments: comments, order_total: totalPrice + (delivery ? 5 : 0)})
         navigate('/guest');
       };
