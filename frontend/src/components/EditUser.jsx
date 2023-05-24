@@ -1,9 +1,10 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Select from "react-select";
 
-const endpoint = 'http://localhost:8000/api/users/'
+import axiosAPI from '../api/axiosAPI';
+
+const endpoint = '/api/users/'
 
 const options = [
     { value: 1, label: "Administrator"},
@@ -19,7 +20,7 @@ const EditUser = () => {
 
     const update = async (e) => {
         e.preventDefault()
-        await axios.put(`${endpoint}${id}`, {user_type: role})
+        await axiosAPI.put(`${endpoint}${id}`, {user_type: role})
         navigate('/admin-home/users')
     }
 
@@ -29,7 +30,7 @@ const EditUser = () => {
 
     useEffect( () => {
         const getUserById = async () => {
-            const response = await axios.get(`${endpoint}${id}`)
+            const response = await axiosAPI.get(`${endpoint}${id}`)
             setUsername(response.data.username)
             setEmail(response.data.email)
             setRole(response.data.user_type)

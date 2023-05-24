@@ -83,6 +83,11 @@ input:-webkit-autofill {
   font-size: 1.375em;
 }
 
+.icon {
+  display: flex;
+  align-items: center;
+}
+
 /* Mobile Background Media Query */
 @media (max-width: 480px) {
   body {

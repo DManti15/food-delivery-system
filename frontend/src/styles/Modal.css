@@ -54,7 +54,7 @@
   overflow-y: scroll;
 }
 
-table {
+.modal-table {
   width: 100%;
   max-width: 280px;
   border-collapse: collapse;

@@ -8,9 +8,10 @@ import "../styles/LoginForm.css";
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, errors } = useAuthContext();
+  const { login, errors, isLoading, setIsLoading } = useAuthContext();
 
   const handleSubmit = async (e) => {
+    setIsLoading(true)
     e.preventDefault();
     login({ email, password });
   };
@@ -64,7 +65,7 @@ function LoginForm() {
       </div>
       <div className="submit-group">
         <h2>Login</h2>
-        <button type="submit">
+        <button type="submit" disabled={isLoading}>
           <ArrowRight
             className="arrow-icon"
             color="currentColor"

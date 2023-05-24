@@ -1,9 +1,10 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Select from "react-select";
 
-const endpoint = 'http://localhost:8000/api/orders/'
+import axiosAPI from '../api/axiosAPI';
+
+const endpoint = '/api/orders/'
 
 const options = [
     { value: 1, label: "Queued"},

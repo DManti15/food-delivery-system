@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import dayjs from 'dayjs';
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
-import dayjs from 'dayjs';
 
-const endpoint = 'http://localhost:8000/api/orders';
+import axiosAPI from '../api/axiosAPI';
+
+const endpoint = '/api/orders';
 
 const options = [
     {value: "", label: "No filter"},
@@ -39,7 +40,7 @@ const ShowOrders = () => {
     }
 
     const getAllOrders = async () => {
-        const response = await axios.get(`${endpoint}`)
+        const response = await axiosAPI.get(`${endpoint}`)
         setOrders(response.data)
     }
 

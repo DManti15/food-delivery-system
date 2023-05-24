@@ -1,21 +1,24 @@
 .sidebar-container {
   width: 20vw;
+  position: relative;
 }
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 20vw;
+  width: 260px;
   background-color: #00071A;
   position: fixed;
   color: #ffffff;
+  z-index: 999;
 }
 
 .side-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 1em;
   padding: .5rem;
 }
 
@@ -24,16 +27,17 @@
   margin-right: .75rem;
 }
 
-.side-header h2 {
+.side-header h1 {
   display: inline-block;
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   font-weight: 600;
-  max-width: 132px;
   line-height: 1.2;
+  text-align: initial;
 }
 
 .side-items {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   list-style: none;
   padding: 0;
@@ -43,41 +47,95 @@
 .side-items li {
   display: flex;
   justify-content: center;
-  padding-top: .25rem;
-  padding-bottom: .25rem;
+  align-items: center;
+  padding-top: .35rem;
+  padding-bottom: .35rem;
   width: 100%;
   transition: .25s ease-in-out;
+  position: relative;
 }
 
-.side-items li:hover {
-  transform: scale(1.1);
-  transition: .25s ease-in-out;
-}
-
-.item-group {
-  width: 180px;
-}
 
 .side-link {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
   font-size: 1.4rem;
   font-weight: 300;
   text-decoration: none;
   color: #ffffff;
-  max-width: 180px;
+  width: 100%;
+}
+
+.item-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 200px;
+}
+
+.item-group:hover {
+  transform: scale(1.1);
+  transition: .25s ease-in-out;
 }
 
 .item-icon {
   margin-right: .75rem;
 }
 
-.item-title {
-  margin-bottom: .25rem;
+.side-link.active::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 5px;
+  background: linear-gradient(331.35deg, #002A99 13.53%, #009ACC 87.41%);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
+.side-profile {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ffffff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  z-index: 1;
+}
 
+.profile-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: .5rem 1rem;
+  cursor: pointer;
+}
 
+.side-profile .avatar-image {
+  display: flex;
+  margin-right: .5rem;
+  margin-bottom: .25rem;
+  width: 3rem;
+  border-radius: 50%;
+}
 
+.side-profile .username {
+  flex-grow: 1;
+}
 
+.popup-menu {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  z-index: 2;
+  margin: .5rem .5rem;
+}

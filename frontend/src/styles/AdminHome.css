@@ -1,19 +1,79 @@
 .admin-home {
-  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  z-index: 0;
 }
 
 .admin-content {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  height: 100vh;
-  margin-left: 270px;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 5;
+  flex: 1 0 calc(100% - 260px);
+  padding: 2rem;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.table-title {
+  margin-left: .5rem;
+}
+
+.table-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.25));
+  padding: 2rem;
+}
+
+.table-dashboard {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-dashboard th, .table-dashboard td {
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.table-dashboard th {
+  border-right: 1px solid #ddd;
+}
+
+.table-dashboard th:last-child {
+  border-right: none;
+}
+
+.table-dashboard td {
+  border-bottom: none;
+}
+
+.table-dashboard td {
+  border-right: 1px solid #ddd;
+}
+
+.table-dashboard td:last-child {
+  border-right: none;
+}
+
+.table-dashboard tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.table-dashboard tr:last-child {
+  border-bottom: none;
 }
 
 @media (min-width: 1025px) {
   .admin-content {
     background: url("../assets/images/backgrounds/bkgImage_webSignUpView.png") no-repeat right center fixed;
-    background-size: 90% 100%;
+    background-size: calc(100% - 255px);
   }
 }
