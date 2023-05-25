@@ -5,6 +5,7 @@ import IMAGES from "../assets/images/index.js";
 import Modal from "../components/Modal.jsx";
 import OrderForm from "../components/OrderForm.jsx";
 import ProductCard from "../components/ProductCard.jsx";
+import Cart from "../components/Cart.jsx"
 
 import "../styles/Guest.css";
 
@@ -13,6 +14,8 @@ function Guest() {
   const [cartItems, setCartItems] = useState([]);
   const [clicks, setClicks] = useState(0);
   const [imageSrc, setImageSrc] = useState(IMAGES.products.hiC_Drink);
+
+  const modalContent = <Cart />;
 
   const handleClick = () => {
     setClicks(clicks + 1);
@@ -23,7 +26,7 @@ function Guest() {
   };
 
   return (
-    <div onClick={handleClick}>
+    <div className="guest-container" onClick={handleClick}>
       <nav className="navbar">
         <img
           src={IMAGES.logos.mtLogo}
@@ -102,7 +105,7 @@ function Guest() {
         />
       </div>
       <OrderForm setCartItems={setCartItems}/>
-      {isOpen && <Modal setIsOpen={setIsOpen} cartItems={cartItems} setCartItems={setCartItems}/>}
+      {isOpen && <Modal setIsOpen={setIsOpen} modalContent={modalContent} cartItems={cartItems} setCartItems={setCartItems}/>}
     </div>
   );
 }

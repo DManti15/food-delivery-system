@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 
 import "../styles/Modal.css";
 
-const Modal = ({ setIsOpen, cartItems, setCartItems }) => {
-  const [totalPrice, setTotalPrice] = useState(0);
+const Modal = ({
+  setIsOpen,
+  cartItems,
+  setCartItems,
+  modalContent
+}) => {
+  /* const [totalPrice, setTotalPrice] = useState(0);
 
   // Calculate the total price of the items
   const calculateTotalPrice = () => {
@@ -40,14 +45,15 @@ const Modal = ({ setIsOpen, cartItems, setCartItems }) => {
 
   useEffect(() => {
     calculateTotalPrice();
-  }, []);
+  }, []); */
 
   return (
     <>
       <div className="dark-bg" onClick={() => setIsOpen(false)} />
       <div className="centered">
         <div className="modal">
-          <div className="modal-header">
+          { modalContent }
+          {/* <div className="modal-header">
             <h5 className="heading blue-text">My Cart</h5>
           </div>
           <div className="cart-table">
@@ -74,7 +80,7 @@ const Modal = ({ setIsOpen, cartItems, setCartItems }) => {
                 Checkout
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

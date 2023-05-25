@@ -23,6 +23,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --green-gradient: linear-gradient(331.35deg, #008C00 13.53%, #00CC00 87.41%);
+  --blue-gradient: linear-gradient(331.35deg, #002A99 13.53%, #009ACC 87.41%);
+  --red-gradient: linear-gradient(331.35deg, #FD1F17 44.69%, #FD5F5B 66.63%, #FD9A9A 87.41%);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 ::placeholder {
@@ -37,7 +45,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background: linear-gradient(331.35deg, #002A99 13.53%, #009ACC 87.41%);
+  background: var(--blue-gradient);
   color: #ffffff;
   cursor: pointer;
   transition: .5s ease;;
@@ -49,6 +57,13 @@ button:hover {
   transition: .5s ease;
 }
 
+.flex-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 110px;
+}
 
 input {
   background: #fdfdfd;

@@ -9,10 +9,10 @@ function Home() {
       <h1 className="header">Which type of user are you?</h1>
       <div className="user-type">
         <Link to="guest">
-          <button className="btn">Guest</button>
+          <button className="home-btn">Guest</button>
         </Link>
         <Link to="admin">
-          <button className="btn">Admin</button>
+          <button className="home-btn">Admin</button>
         </Link>
       </div>
     </div>

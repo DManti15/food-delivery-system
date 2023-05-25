@@ -42,18 +42,6 @@ Route::get('/myCart', [CartController::class, 'showCart']);
 Route::delete('/myCart/{id}', [CartController::class, 'deleteCartItem']);
 Route::post('/myCart', [CartController::class, 'placeOrder']);
 
-//Routes for users table
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/{id}', [UserController::class, 'show']);
-Route::put('/users/{id}', [UserController::class, 'update']);
-Route::post('/users', [UserController::class, 'store']);
-Route::delete('/users/{id}', [UserController::class, 'destroy']);
-
-Route::get('/orders', [OrderController::class, 'showOrders']);
-Route::get('/orders/{id}', [OrderController::class, 'showOrder']);
-Route::put('/orders/{id}', [OrderController::class, 'editOrderStatus']);
-
-
 /*
 |--------------------------------------------------------------------------
 Protected Routes:
@@ -66,6 +54,18 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
   Route::post('/products', [ProductController::class, 'store']);
   Route::put('/products/{id}', [ProductController::class, 'update']);
   Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+
+  //Routes for users table
+  Route::get('/users', [UserController::class, 'index']);
+  Route::get('/users/{id}', [UserController::class, 'show']);
+  Route::put('/users/{id}', [UserController::class, 'update']);
+  Route::post('/users', [UserController::class, 'store']);
+  Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+  //Routes for orders table
+  Route::get('/orders', [OrderController::class, 'showOrders']);
+  Route::get('/orders/{id}', [OrderController::class, 'showOrder']);
+  Route::put('/orders/{id}', [OrderController::class, 'editOrderStatus']);
 
   Route::get('/user', function (Request $request) {
     return $request->user();

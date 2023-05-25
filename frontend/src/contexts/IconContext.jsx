@@ -7,6 +7,7 @@ export const IconProvider = ({ children }) => {
       value={{
         color: "currentColor",
         size: "2.5rem",
+        className: "icon",
       }}
     >
     { children }

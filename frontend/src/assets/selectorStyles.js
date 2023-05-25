@@ -44,4 +44,21 @@ const customStyles = {
   }),
 };
 
-export { options, customStyles };
+const altStyle = {
+  control: (provided) => ({
+    ...provided,
+    borderRadius: 50,
+    boxShadow: "none",
+  }),
+  container: (provided) => ({
+    ...provided,
+    width: "190px",
+  }),
+};
+
+const tableStyle = {
+  ...customStyles, 
+  ...altStyle,
+}
+
+export { options, customStyles, tableStyle };

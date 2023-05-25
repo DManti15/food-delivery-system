@@ -35,8 +35,6 @@ function App() {
           <Route path="guest" element={<Guest />} />
           <Route path="admin" element={<AdminLogin />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="orders" element={<ShowOrders />} />
-          <Route path="editOrder/:id" element={<EditOrder />} />
           {/*
           <Route path="orders" element={<ShowOrders />} />
           <Route path="myOrders" element={<ShowMyOrders />} />
@@ -45,12 +43,14 @@ function App() {
         <Route element={<AuthLayout />}>
           <Route path="admin-home" element={<AdminHome />}>
             <Route path="products" element={<ShowProducts />} />
+            <Route path="orders" element={<ShowOrders />} />
             <Route path="users" element={<ShowUsers />} />
           </Route>
           <Route path="create" element={<CreateProduct />} />
           <Route path="edit/:id" element={<EditProduct />} />
           <Route path="createUser" element={<CreateUser />} />
           <Route path="editUser/:id" element={<EditUser />} />
+          <Route path="editOrder/:id" element={<EditOrder />} />
         </Route>
       </Routes>
     </div>

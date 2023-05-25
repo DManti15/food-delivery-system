@@ -2,22 +2,38 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axiosAPI from "../api/axiosAPI";
+import { Plus, PencilSimple, Trash } from "@phosphor-icons/react";
 
 const endPoint = "/api/users/";
 
-const ShowUsers = () => {
+const ShowUsers = ({ isOpen, handleIsOpen }) => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
 
+  const handleStateChange = (e) => {
+    isOpen = true;
+    let newState = isOpen;
+    const btnClass = e.target.classList;
+    const options = btnClass.contains("options-btn");
+    const edit = btnClass.contains("edit-btn");
+    if (options) handleIsOpen(newState, 1);
+    else if (edit) handleIsOpen(newState, 2);
+  };
+
   const getAllUsers = async () => {
     const response = await axiosAPI.get(`${endPoint}`);
-    setUsers(response.data);
-    console.log(response.data);
+    setUsers((prevUsers) => {
+      if (JSON.stringify(prevUsers) !== JSON.stringify(response.data)) {
+        return response.data;
+      }
+      return prevUsers;
+    });
   };
 
   const deleteAllUsers = async (id) => {
     await axiosAPI.delete(`${endPoint}${id}`);
-    navigate("/users");
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+    navigate("/admin-home/users");
   };
 
   useEffect(() => {
@@ -28,13 +44,10 @@ const ShowUsers = () => {
     <div className="wrapper">
       <h2 className="table-title">Users</h2>
       <div className="table-container">
-        <div className="d-grip gap-2">
-          <Link
-            to="/createUser"
-            className="btn btn-success btn-lg mt-2 mb-2 text white"
-          >
-            Create
-          </Link>
+        <div className="table-options">
+          <button className="flex-btn options-btn" onClick={handleStateChange}>
+            Add User <Plus size="1.5rem" />
+          </button>
         </div>
         <table className="table-dashboard table-stripped">
           <thead className="bg-primary text-white">
@@ -51,15 +64,19 @@ const ShowUsers = () => {
                 <td> {user.username} </td>
                 <td> {user.email} </td>
                 <td> {user.user_type} </td>
-                <td>
-                  <Link to={`/editUser/${user.user_id}`}>
-                    <button className="btn btn-warning">Edit</button>
-                  </Link>
+                <td className="flex-cell">
+                  <button
+                    className="flex-btn edit-btn"
+                    onClick={handleStateChange}
+                  >
+                    Edit <PencilSimple size="1.5rem" />
+                  </button>
                   <button
                     onClick={() => deleteAllUsers(user.user_id)}
-                    className="btn btn-danger"
+                    className="flex-btn delete-btn"
                   >
                     Delete
+                    <Trash size="1.5rem" />
                   </button>
                 </td>
               </tr>

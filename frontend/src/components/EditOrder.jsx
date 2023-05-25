@@ -6,13 +6,6 @@ import axiosAPI from '../api/axiosAPI';
 
 const endpoint = '/api/orders/'
 
-const options = [
-    { value: 1, label: "Queued"},
-    { value: 2, label: "Ready"},
-    { value: 3, label: "Delivered"},
-    { value: 4, label: "Canceled"},
-];
-
 const EditOrder = () => {
     const [orderId, setOrderId] = useState(0)
     const [customer, setCustomer] = useState('')
@@ -28,6 +21,7 @@ const EditOrder = () => {
         { value: 3, label: "Delivered" },
         { value: 4, label: "Canceled" },
       ];
+
     const navigate = useNavigate()
     const {id} = useParams()
 
@@ -35,7 +29,7 @@ const EditOrder = () => {
         e.preventDefault()
         const updatedComments = comments ? cancelReason + '\n' + comments : cancelReason;
         await axiosAPI.put(`${endpoint}${id}`, {order_status: orderStatus, comments: updatedComments})
-        navigate('/orders')
+        navigate('/admin-home/orders')
     }
 
 
@@ -70,6 +64,7 @@ const EditOrder = () => {
         }      
 
         setFilteredOptions(currentOptions);
+        console.log(filteredOptions)
 
       }, [orderStatus]);
 

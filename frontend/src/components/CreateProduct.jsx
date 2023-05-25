@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axiosAPI from '../api/axiosAPI';
 
 const endpoint = '/api/products/'
+
 const CreateProduct = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
